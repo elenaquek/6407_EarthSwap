@@ -8,7 +8,7 @@ export default function App() {
     <View style={styles.container}>
       <Text style={{fontSize:45, fontFamily: "Poppins-Black"}}>Mars Change</Text>
       <StatusBar style="auto" />
-      <Link href ="/Home" style ={{color:'black'}}>Go to Home</Link>
+      <Link href ="/Home" style ={{color:'black'}}>PROCEED Home</Link>
     </View>
   );
 }
