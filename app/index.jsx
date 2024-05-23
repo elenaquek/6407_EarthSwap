@@ -6,7 +6,7 @@ import { Link } from 'expo-router';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={{fontSize:45, fontFamily: "Poppins-Black"}}>Earth Swap</Text>
+      <Text style={{fontSize:45, fontFamily: "Poppins-Black"}}>Earth Change</Text>
       <StatusBar style="auto" />
       <Link href ="/Home" style ={{color:'black'}}>Go to Home</Link>
     </View>
