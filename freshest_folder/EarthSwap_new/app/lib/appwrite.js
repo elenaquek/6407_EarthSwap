@@ -96,3 +96,17 @@ export async function getCurrentUser() {
     return null;
   }
 }
+
+// In your lib/appwrite.js or wherever you have your API functions
+
+export const getFollowersCount = async (userId) => {
+  // Implement API call to fetch the followers count for the user
+  // Return the followers count
+  return 100; // Placeholder value
+};
+
+export const getListingsCount = async (userId) => {
+  // Implement API call to fetch the listings count for the user
+  // Return the listings count
+  return 5; // Placeholder value
+};
