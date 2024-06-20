@@ -4,7 +4,7 @@ import React, { useState } from "react";
 export const Config = {
     endpoint: 'https://cloud.appwrite.io/v1',
     platform: 'com.jsm.earthswap',
-    projectId: '665764190015e62cbf28',
+    projectId: '665764190015e62cbf28', 
     databaseId: '665766e30037eeb04e05',
     userCollectionId: '665766fe000fe458fc7c',
     storageId: '6657680d0038482da1a7',
