@@ -10,6 +10,7 @@ import {createUser} from '../lib/appwrite';
 import { signIn } from '../lib/appwrite';
 import { useGlobalContext } from '../../context/GlobalProvider';
 import { getCurrentUser } from '../lib/appwrite';
+import { getRouteInfoFromState } from 'expo-router/build/LocationProvider';
 
 const earthSwapLogo = require('../../assets/images/EarthSwapLogo.png');
 
@@ -140,3 +141,4 @@ const styles = StyleSheet.create({
 })
 
 export default SignIn
+
