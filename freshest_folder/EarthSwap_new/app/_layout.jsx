@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ToastAndroid} from 'react-native';
 import {Slot, Stack, SplashScreen} from 'expo-router';
 import React from 'react';
 import {useFonts} from 'expo-font';
 import {useEffect} from 'react';
 import GlobalProvider from '../context/GlobalProvider';
+import Toast from 'react-native-toast-message';
+
 
 SplashScreen.preventAutoHideAsync();
 
@@ -40,7 +42,8 @@ const RootLayout = () =>{
         <Stack.Screen name ="(auth)" options ={{headerShown:false}}/>
         <Stack.Screen name ="(tabs)" options ={{headerShown:false}}/>
       </Stack>
-    </GlobalProvider>
+      <Toast/>
+      </GlobalProvider>
   )
 }
 export default RootLayout

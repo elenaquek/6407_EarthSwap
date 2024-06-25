@@ -1,7 +1,9 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ToastAndroid } from 'react-native';
 import React from 'react';
 import {Tabs, Redirect} from 'expo-router';
 import {icons} from '../../constants';
+import Toast from 'react-native-toast-message';
+
 
 const TabIcon = ({icon,color,name,focused}) => {
   return (
@@ -43,7 +45,7 @@ const TabsLayout = () => {
         <Tabs.Screen 
           name ="listing" 
           options={{
-            title:'Listing',
+            title:'listing',
             headerShown:false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon 
@@ -71,7 +73,8 @@ const TabsLayout = () => {
           }}
         />
       </Tabs>
-    </>
+      <Toast/>
+      </>
   )
 }
 

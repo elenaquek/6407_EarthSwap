@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, ToastAndroid} from 'react-native';
 import { Redirect, router } from 'expo-router';
 import { SafeAreaView} from 'react-native-safe-area-context';
 import React from 'react';
 import CustomButton from '../components/CustomButton';
 import 'react-native-url-polyfill/auto';
 import { useGlobalContext } from '../context/GlobalProvider';
+import Toast from 'react-native-toast-message';
+
 
 const earthSwapLogo = require('../assets/images/EarthSwapLogo.png');
 
@@ -41,6 +43,7 @@ export default function App() {
           </View>
         </View>
       </ScrollView>
+      <Toast  />
     </SafeAreaView>
   );
 }

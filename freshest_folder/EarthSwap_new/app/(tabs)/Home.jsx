@@ -1,7 +1,12 @@
-import React from 'react';
-import { StyleSheet, Text, View, FlatList, Image, TextInput, TouchableOpacity } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { useNavigation } from '@react-navigation/native';
+import { FlatList, StyleSheet, Text, TextInput, View, SafeAreaView, Image, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { app } from '../../firebaseConfig';
+import { getFirestore, getDocs, collection, addDoc} from "firebase/firestore";
+import Categories from '../../components/Homescreen/Categories';
+
+
 
 const sampleData = [
   { id: '1', title: 'Doraemon phonecase Iphone 15 Plus', image: 'https://drive.google.com/uc?export=view&id=1IAoEb9-jl8ggfP1aCKiEXg6ZNQshxNDk' },
@@ -27,6 +32,24 @@ const HomeScreen = () => {
 
     return data;
   };
+
+  const db = getFirestore(app);
+    const [categoryList, setCategoryList]=useState([]);
+
+    useEffect(()=>{
+        getCategoryList()
+    },[])
+
+    const getCategoryList = async () => {
+        setCategoryList([]);
+        const categories = [];
+        const querySnapshot = await getDocs(collection(db, 'Category'));
+    
+        querySnapshot.forEach((doc) => {
+          categories.push(doc.data());
+        });
+        setCategoryList(categories);
+      };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -61,16 +84,14 @@ const HomeScreen = () => {
             </View>
             <View style={styles.forYouContainer}>
               <Text style={styles.forYouTitle}>Listings for you</Text>
-              <View style={styles.categoriesList}>
-                <TouchableOpacity style={styles.categoryItem}><Text>Electronics</Text></TouchableOpacity>
-                <TouchableOpacity style={styles.categoryItem}><Text>Fashion</Text></TouchableOpacity>
-                <TouchableOpacity style={styles.categoryItem}><Text>Home</Text></TouchableOpacity>
-              </View>
             </View>
+            <Categories categoryList={categoryList}/>
+
           </View>
         )}
         columnWrapperStyle={styles.row}
       />
+
     </SafeAreaView>
   );
 };
